@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Themes View Controller-->
+        <scene sceneID="j4h-Rf-ebP">
+            <objects>
+                <viewController storyboardIdentifier="ThemeIdentifier" id="Feu-gX-dM2" customClass="ThemesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pD8-FE-VAG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.65000000000000002" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-1c-XIN">
+                                <rect key="frame" x="85.5" y="173" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="z3R-OL-gBe"/>
+                                </constraints>
+                                <state key="normal" title="Тема 1"/>
+                                <connections>
+                                    <action selector="themeWasChoosen:" destination="Feu-gX-dM2" eventType="touchUpInside" id="jsC-7f-nck"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.65000000000000002" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkr-D1-i3E">
+                                <rect key="frame" x="85.5" y="253" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3Ma-Zo-elI"/>
+                                </constraints>
+                                <state key="normal" title="Тема 2"/>
+                                <connections>
+                                    <action selector="themeWasChoosen:" destination="Feu-gX-dM2" eventType="touchUpInside" id="bHq-ys-1Zz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.65000000000000002" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fD-RG-leH">
+                                <rect key="frame" x="85" y="333" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="sUN-Ik-cDr"/>
+                                </constraints>
+                                <state key="normal" title="Тема 3"/>
+                                <connections>
+                                    <action selector="themeWasChoosen:" destination="Feu-gX-dM2" eventType="touchUpInside" id="NK6-GJ-pTI"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POJ-A1-fTy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="oVg-lt-QUp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xsv-1c-XIN" firstAttribute="centerX" secondItem="Tkr-D1-i3E" secondAttribute="centerX" id="3H2-6H-yI7"/>
+                            <constraint firstItem="Tkr-D1-i3E" firstAttribute="top" secondItem="Xsv-1c-XIN" secondAttribute="bottom" constant="50" id="807-Vv-zMR"/>
+                            <constraint firstItem="7fD-RG-leH" firstAttribute="top" secondItem="Tkr-D1-i3E" secondAttribute="bottom" constant="50" id="9t8-Cq-Vq3"/>
+                            <constraint firstItem="8bw-Tf-1ux" firstAttribute="trailing" secondItem="POJ-A1-fTy" secondAttribute="trailing" id="CzZ-tH-UbR"/>
+                            <constraint firstItem="Xsv-1c-XIN" firstAttribute="centerX" secondItem="pD8-FE-VAG" secondAttribute="centerX" id="Hmu-cS-WoN"/>
+                            <constraint firstItem="POJ-A1-fTy" firstAttribute="top" secondItem="pD8-FE-VAG" secondAttribute="top" id="VFC-S3-eLn"/>
+                            <constraint firstItem="POJ-A1-fTy" firstAttribute="leading" secondItem="8bw-Tf-1ux" secondAttribute="leading" id="dK1-Hf-rbg"/>
+                            <constraint firstItem="Tkr-D1-i3E" firstAttribute="centerX" secondItem="7fD-RG-leH" secondAttribute="centerX" id="iTZ-Kj-cwW"/>
+                            <constraint firstItem="Xsv-1c-XIN" firstAttribute="top" secondItem="8bw-Tf-1ux" secondAttribute="top" constant="153" id="nYH-Tx-p8v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8bw-Tf-1ux"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fuW-yf-MLF">
+                        <barButtonItem key="rightBarButtonItem" title="Закрыть" id="9ZD-i6-qGr"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZV-v5-r8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2595" y="-1565"/>
+        </scene>
+    </scenes>
+</document>
