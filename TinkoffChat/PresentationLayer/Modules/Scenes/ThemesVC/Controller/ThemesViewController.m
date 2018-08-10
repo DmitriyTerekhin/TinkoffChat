@@ -10,6 +10,7 @@
 #import "ThemesViewControllerDelegate.h"
 #import "Themes.h"
 #import <UIKit/UIKit.h>
+#import "TinkoffChat-Swift.h"
 
 @interface ThemesViewController ()
 @end

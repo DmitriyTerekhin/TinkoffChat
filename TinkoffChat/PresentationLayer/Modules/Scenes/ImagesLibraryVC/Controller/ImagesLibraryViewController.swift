@@ -108,7 +108,6 @@ extension ImagesLibraryViewController: UICollectionViewDelegate {
             model.loadOneImage(from: imageURL) { (data, errorString) in
                 guard errorString == nil else {
                     return}
-                
                 if let imageData = data {
                     DispatchQueue.main.async {
                         imageCell.imageView.image = UIImage(data: imageData)

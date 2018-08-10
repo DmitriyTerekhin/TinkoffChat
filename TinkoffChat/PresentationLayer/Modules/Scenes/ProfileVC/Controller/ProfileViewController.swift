@@ -205,7 +205,6 @@ class ProfileViewController: UIViewController {
     }
     
     private func turnEditModeUILogic(_ on: Bool) {
-       
         if on {
             profileView.editButton.setTitle("Сохранить", for: .normal)
         } else {
@@ -221,14 +220,10 @@ class ProfileViewController: UIViewController {
                 profileView.activityIndicator.startAnimating()
                 profileView.activityIndicator.isHidden = false
             }
-            makeSavingButtonsActive(false)
+            makeActiveEditableElements(false)
         } else {
-            makeSavingButtonsActive(true)
+            makeActiveEditableElements(true)
         }
-    }
-    
-    private func makeSavingButtonsActive(_ isActive: Bool) {
-        
     }
     
     private func saveMyProfileInfo() {
@@ -278,17 +273,17 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITextFieldDelegate, UITextViewDelegate {
     @objc private func textFieldDidChange(_ textField: UITextField) {
         if wasModelChanged() {
-            makeSavingButtonsActive(true)
+            makeActiveEditableElements(true)
         } else {
-            makeSavingButtonsActive(false)
+            makeActiveEditableElements(false)
         }
     }
     
     func textViewDidChange(_ textView: UITextView) {
         if wasModelChanged() {
-            makeSavingButtonsActive(true)
+            makeActiveEditableElements(true)
         } else {
-            makeSavingButtonsActive(false)
+            makeActiveEditableElements(false)
         }
     }
 }
@@ -300,9 +295,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         profileView.profileImageView.image = image
         imageWasChanged = true
         if wasModelChanged() {
-            makeSavingButtonsActive(true)
+            makeActiveEditableElements(true)
         } else {
-            makeSavingButtonsActive(false)
+            makeActiveEditableElements(false)
         }
         picker.dismiss(animated: true,completion: nil)
     }

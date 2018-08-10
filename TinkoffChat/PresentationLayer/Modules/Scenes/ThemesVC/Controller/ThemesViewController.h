@@ -14,7 +14,7 @@
 @interface ThemesViewController : UIViewController
 
 @property (nonatomic, retain) id <ThemesViewControllerDelegate> delegate;
-@property (nonatomic, strong) id <IThemeService> themeService;
+@property (nonatomic, retain) id <IThemeService> themeService;
 @property (nonatomic, retain) Themes *model;
 
 - (IBAction)themeWasChoosen:(UIButton*)sender;
