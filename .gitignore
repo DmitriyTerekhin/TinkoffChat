@@ -1,6 +1,6 @@
 /build/
-/DerivedData/
-/xcuserdata/
+DerivedData/
+xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 .DS_Store
