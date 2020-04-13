@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBAppUser" representedClassName="DBAppUser" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="infoAboutMe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conversations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBConversation" inverseName="appUser" inverseEntity="DBConversation" syncable="YES"/>
+    </entity>
+    <entity name="DBConversation" representedClassName="DBConversation" syncable="YES">
+        <attribute name="hasUnreadMessage" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBAppUser" inverseName="conversations" inverseEntity="DBAppUser" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DBMessage" inverseName="conversation" inverseEntity="DBMessage" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBUser" inverseName="conversation" inverseEntity="DBUser" syncable="YES"/>
+    </entity>
+    <entity name="DBMessage" representedClassName="DBMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isIncoming" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="text" attributeType="String" syncable="YES"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBConversation" inverseName="messages" inverseEntity="DBConversation" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="date"/>
+                <constraint value="text"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="DBUser" representedClassName="DBUser" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOnline" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBConversation" inverseName="user" inverseEntity="DBConversation" syncable="YES"/>
+    </entity>
+    <fetchRequest name="fetchConversationById" entity="DBConversation" predicateString="id == $sendedId"/>
+    <fetchRequest name="fetchMessagesFromConversation" entity="DBMessage" predicateString="conversation.id == $sendedId"/>
+    <fetchRequest name="fetchOnlineUsers" entity="DBUser" predicateString="isOnline == 1"/>
+    <fetchRequest name="FetchRequest" entity="DBUser" predicateString="id == $id"/>
+    <fetchRequest name="notEmptyConversationWhereUserIsOnline" entity="DBConversation" predicateString="user.isOnline == 1 AND messages.count &gt; 0"/>
+    <elements>
+        <element name="DBAppUser" positionX="-126" positionY="14" width="128" height="103"/>
+        <element name="DBConversation" positionX="-353" positionY="99" width="128" height="135"/>
+        <element name="DBMessage" positionX="-45" positionY="252" width="128" height="120"/>
+        <element name="DBUser" positionX="-569" positionY="9" width="128" height="105"/>
+    </elements>
+</model>
